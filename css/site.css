@@ -54,3 +54,15 @@ main>.container {
     font-size: 1rem;
     font-weight: bold;
 }
+
+.fizz{
+    color: red
+    }
+
+.buzz{
+    color: blue
+    }
+
+.fizzbuzz{
+    color: purple
+    }
