@@ -11,10 +11,10 @@
      if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
          //Call display values and pass fizz and buzz to the function
          //calculate fizzbuzz
-         let fizzBuzzValues = fizzBuzzA(fizzValue, buzzValue);
-         
+         let fizzBuzzValues = fizzBuzzC(fizzValue, buzzValue);
+
          //display the values
-         displayValues(fbValues);
+         displayValues(fizzBuzzValues);
 
      } else {
          alert("you must enter integers!");
@@ -22,71 +22,74 @@
 
  }
 
-//business logic layer (LOGIC LAYER - Model)
+ //business logic layer (LOGIC LAYER - Model)
 
-function fizzBuzzA(fizz, buzz) {
+ function fizzBuzzA(fizz, buzz) {
 
-    //create an array
-    let fbValues = [];
+     //create an array
+     let fbValues = [];
 
-    for (let i = 1; i <= 100; i++ ) {
+     for (let i = 1; i <= 100; i++) {
 
-        if (i % fizz == 0 && i % buzz == 0) {
-            fbValues.push('FizzBuzz');
-        } else if (i % fizz == 0 ) {
-            fbValues.push('Fizz');
-        } else if (i % buzz == 0 ) {
-            fbValues.push('Buzz');
-        } else {
-            fbValues.push(i);
-        }
-    }
+         if (i % fizz == 0 && i % buzz == 0) {
+             fbValues.push('FizzBuzz');
+         } else if (i % fizz == 0) {
+             fbValues.push('Fizz');
+         } else if (i % buzz == 0) {
+             fbValues.push('Buzz');
+         } else {
+             fbValues.push(i);
+         }
+     }
 
-    return fbValues;
-}
+     return fbValues;
+ }
 
-function fizzBuzzB(fizz, buzz){
-    let fbValues = [];
+ function fizzBuzzB(fizz, buzz) {
+     let fbValues = [];
 
-    let isFizz = false;
-    let isBuzz = false;
+     let isFizz = false;
+     let isBuzz = false;
 
-    for (let i = 0; i < 101 ; i++){
-        
-       isFizz = (i%fizz == 0);
-       isBuzz = (i%buzz == 0);
-    
-       switch(true){
-           case isFizz && isBuzz:{
-               fbValues.push('FizzBuzz');
-               break;
-           }
-           case isFizz: {
-               fbValues.push('Fizz');
-               break;
-           }
-           case isBuzz: {
-                fbValues.push('Buzz');
-                break;
-           }
-           default: {
-               fbValues.push(i);
-               break;
-           }
-       }
-    }
+     for (let i = 0; i < 101; i++) {
 
-    return fbValues;
-}
+         isFizz = (i % fizz == 0);
+         isBuzz = (i % buzz == 0);
 
-function fizzBuzzC(fizz, buzz){
-    let fbValues = [];
+         switch (true) {
+             case isFizz && isBuzz: {
+                 fbValues.push('FizzBuzz');
+                 break;
+             }
+             case isFizz: {
+                 fbValues.push('Fizz');
+                 break;
+             }
+             case isBuzz: {
+                 fbValues.push('Buzz');
+                 break;
+             }
+             default: {
+                 fbValues.push(i);
+                 break;
+             }
+         }
+     }
 
-    for (let i = 0; i < 101; i++) { 
-        let value = ( (i%fizz == 0 ?  'Fizz' : '') +( i%buzz == 0 ? 'Buzz'  : '')  || i  );
-        fbValues.push = (value);
-    }
-}
+     return fbValues;
+ }
+
+ function fizzBuzzC(fizz, buzz) {
+     let fbValues = [];
+
+     for (let i = 0; i < 101; i++) {
+         let value = ((i % fizz == 0 ? 'Fizz' : '') + (i % buzz == 0 ? 'Buzz' : '') || i);
+         fbValues.push(value);
+
+
+     }
+     return fbValues;
+ }
 
  //Final Step (DISPLAY = view)
  function displayValues(fbValues) {
@@ -96,30 +99,28 @@ function fizzBuzzC(fizz, buzz){
      //display a list of numbers from 1 to 100
 
 
-     //get the results div from teh page
+     //get the results div from the page
      let element = document.getElementById("results");
 
      //reset the display
      element.innerHTML = "";
 
-     for(let index = 0; index < fbValues.length; index++){
+     for (let index = 1; index < fbValues.length; index++) {
 
-        let item = document.createElement("div");
-        item.classList.add("col");
+         let item = document.createElement("div");
+         item.classList.add("col");
 
-        item.innerHTML = fbValues[index];
+         item.innerHTML = fbValues[index];
 
-        if (fbValues[index] == 'Fizz') {
-            item.classList.add("fizz");
-        }
-        else if (fbValues[index] == 'Buzz') {
-            item.classList.add("buzz");
-        }
-        else if (fbValues[index] == 'FizzBuzz') {
-            item.classList.add("fizzbuzz");
-        }
+         if (fbValues[index] == 'Fizz') {
+             item.classList.add("fizz");
+         } else if (fbValues[index] == 'Buzz') {
+             item.classList.add("buzz");
+         } else if (fbValues[index] == 'FizzBuzz') {
+             item.classList.add("fizzbuzz");
+         }
 
-        element.appendChild(item);
+         element.appendChild(item);
 
      }
-    }
+ }
